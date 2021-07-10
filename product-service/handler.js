@@ -5,8 +5,8 @@ module.exports.hello = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
+        productName: 'LG 27UL500 27',
+        price: 23700
       },
       null,
       2
