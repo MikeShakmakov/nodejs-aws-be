@@ -1,10 +1,8 @@
 import { formatJSONResponse } from '@libs/apiGateway';
+const json = require('./adidas.json');
 
 export const main = async () => {
   return formatJSONResponse({
-    products: [{
-      productName: 'LG 27UL500 27',
-      price: 23700
-    }]
+    products: json
   });
 };
