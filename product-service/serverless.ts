@@ -1,6 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/products';
+import getProductsList from '@functions/productsList';
 
 const serverlessConfiguration: AWS = {
   service: 'product-service',
@@ -27,7 +27,7 @@ const serverlessConfiguration: AWS = {
     stage: 'dev',
   },
   // import the function via paths
-  functions: { hello },
+  functions: { getProductsList },
 };
 
 module.exports = serverlessConfiguration;
