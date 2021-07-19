@@ -12,7 +12,7 @@ export const main = async (event: APIGatewayProxyEvent) => {
       throw {statusCode: 404, text: 'Product was not found'};
     }
   } catch(e) {
-    if (e?.statusCode === 404) {
+    if (e?.statusCode) {
       return formatJSONError(e.statusCode, e.text);
     }
     return formatJSONError(500, 'something went wrong');
