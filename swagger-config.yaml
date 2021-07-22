@@ -1,0 +1,88 @@
+
+openapi: "3.0.0"
+info:
+  version: "0.0.1"
+  title: "Adidas shop swagger api UI"
+  description: ""
+servers:
+  - url: "https://65wvl7vj6l.execute-api.eu-west-1.amazonaws.com/dev"
+    description: "shop api"
+paths:
+  /products:
+    get:
+      summary: "Get products list"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Product'
+  /products/{Id}:
+    get:
+      summary: "Get product by id"
+      parameters:
+      - name: Id
+        in: path
+        description: Unique identifier of the product 
+        required: true
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Product'
+        404:
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+definitions:
+  Product:
+    type: object
+    properties:
+      URL:
+        type: string
+        description: url of the product in original shop
+      Product_Name:
+        type: string
+        description: product title
+      Product_ID:
+        type: string
+        description: unique id
+      Listing_Price:
+        type: integer
+        format: int32
+      Discount:
+        type: integer
+        format: int32 
+      Brand:
+        type: integer
+        format: int32 
+      Description:
+        type: string 
+      Rating:
+        type: integer
+        format: int32 
+      Reviews:
+        type: integer
+        format: int32 
+      Images:
+        type: array
+        items:
+          type: string
+      Last_Visited:
+        type: string 
+      
+
+
