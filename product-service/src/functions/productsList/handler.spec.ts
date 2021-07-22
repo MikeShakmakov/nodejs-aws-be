@@ -17,13 +17,10 @@ describe('productById lambda: ', () => {
         resource: null,
     };
 
-    it('should check it returns proper response', (done) => {
-        const result = main(mock);
+    it('should check it returns proper response', async () => {
+        const result = await main(mock);
         expect(result).toBeDefined();
-        result.then(data => {
-            expect(data.statusCode).toBe(200);
-            expect(JSON.parse(data.body).products.length).toBeDefined();
-            done();
-        });
+        expect(result.statusCode).toBe(200);
+        expect(JSON.parse(result.body).products.length).toBeDefined();
     });
 });
